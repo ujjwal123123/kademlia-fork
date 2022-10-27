@@ -19,7 +19,8 @@ def parse_arguments():
 
     # Optional arguments
     parser.add_argument("-i", "--ip", help="IP address of existing node", type=str, default=None)
-    parser.add_argument("-p", "--port", help="port number of existing node", type=int, default=None)
+    parser.add_argument("-p", "--port", help="port number of existing node", type=int, default=8468)
+    parser.add_argument("-t", "--this", help="Port number of this node", type=int, default=None)
 
     return parser.parse_args()
 
@@ -28,8 +29,9 @@ def connect_to_bootstrap_node(args):
     loop = asyncio.get_event_loop()
     loop.set_debug(True)
 
-    loop.run_until_complete(server.listen(8469))
+    loop.run_until_complete(server.listen(args.this))
     bootstrap_node = (args.ip, int(args.port))
+    # print("Connecting to bootstrap node: {}".format(bootstrap_node))
     loop.run_until_complete(server.bootstrap([bootstrap_node]))
 
     try:
