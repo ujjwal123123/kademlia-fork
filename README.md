@@ -15,10 +15,10 @@ git clone https://github.com/ujjwal123123/kademlia-fork.git
 cd kademlia-fork
 pip install -r dev-requirements.txt
 pip install .
-python -m example.node  # start bootstrap node
-python -m example.node -i 0.0.0.0 -t 8471  # create node 1
-python -m example.node -i 0.0.0.0 -t 8472  # create node 2
-python -m example.node -i 0.0.0.0 -t 8473  # create node 3
+python -m examples.node  # start bootstrap node
+python -m examples.node -i 0.0.0.0 -t 8471  # create node 1
+python -m examples.node -i 0.0.0.0 -t 8472  # create node 2
+python -m examples.node -i 0.0.0.0 -t 8473  # create node 3
 ```
 
 The above code should create a bootstrap and three other nodes.
@@ -26,13 +26,13 @@ The above code should create a bootstrap and three other nodes.
 To set keys:
 
 ```bash
-python -m example.set 0.0.0.0 8471 mirza 60kmph
+python -m examples.set 0.0.0.0 8471 mirza 60kmph
 ```
 
 To get value corresponding to a key:
 
 ```bash
-python -m example.get 0.0.0. 8471 mirza
+python -m examples.get 0.0.0.0 8471 mirza
 ```
 
 ## Usage
